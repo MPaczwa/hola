@@ -1,0 +1,37 @@
+Hola hiszpański: aplikacja webowa na iPhone'a
+=============================================
+
+Pliki
+  index.html             aplikacja
+  slowka.txt             WSPÓLNA LISTA SŁÓWEK (tylko ten plik edytujesz w trakcie semestru)
+  sw.js                  dzięki niemu aplikacja działa bez internetu
+  manifest.webmanifest   nazwa i ikona aplikacji
+  icon-*.png             ikona na ekran początkowy
+
+Wrzucenie na GitHub (raz)
+  1. github.com > plus w prawym górnym rogu > New repository.
+     Nazwa np. "hola", widoczność Public, Create repository.
+  2. Na stronie repozytorium: "uploading an existing file".
+     Przeciągnij WSZYSTKIE pliki z tego folderu (same pliki, nie folder) > Commit changes.
+  3. Settings > Pages > Source: Deploy from a branch > Branch: main, folder / (root) > Save.
+  4. Po kilku minutach aplikacja jest pod adresem
+     https://TWOJA-NAZWA.github.io/hola/
+
+Instalacja na telefonie (każdy u siebie)
+  iPhone: otwórz adres w Safari > Udostępnij > "Do ekranu początkowego".
+  Android: otwórz w Chrome > menu > "Dodaj do ekranu głównego".
+  Postępy każdy ma u siebie na telefonie.
+
+Dopisywanie słówek
+  1. Na GitHubie otwórz slowka.txt > ikona ołówka.
+  2. Dopisz wiersze "hiszpański = polski" (opis formatu jest na górze pliku).
+  3. Commit changes.
+  Telefony pobierają nową listę same przy otwarciu aplikacji, zwykle do 10 minut
+  po zapisie. Ręcznie: Postępy > Lista słówek > Sprawdź aktualizację.
+  W tym samym miejscu widać wiersze, których aplikacja nie zrozumiała.
+
+Warto wiedzieć
+  - Aplikacja z ikony ma osobną pamięć niż Safari. Ucz się z ikony albo przenieś
+    postępy: Postępy > Dane i kopia.
+  - Kolejność słówek i przenoszenie ich między działami nie kasuje postępów.
+    Zmiana hiszpańskiego zapisu słówka zeruje postęp tego jednego słówka.

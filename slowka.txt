@@ -1,0 +1,127 @@
+# HOLA: LISTA SŁÓWEK
+# Ten plik to cała baza słówek aplikacji. Po zapisaniu zmian na GitHubie
+# wszyscy dostają je sami (zwykle w ciągu 10 minut, po ponownym otwarciu aplikacji).
+#
+# JAK DOPISAĆ SŁÓWKO
+#   hiszpański = polski
+#   el coche = samochód
+#
+# Dodatkowe poprawne odpowiedzi oddziel średnikiem (po obu stronach):
+#   la madre = matka ; mama
+#   los Estados Unidos ; Estados Unidos = Stany Zjednoczone ; USA
+#
+# Notatka lub przykład po pionowej kresce:
+#   tomar = brać ; pić | Np. tomar agua: pić wodę.
+#
+# JAK DODAĆ NOWY DZIAŁ
+#   [Nazwa działu | Hiszpański tytuł | Krótki opis]
+#   > Opcjonalna uwaga, która pokaże się nad listą słówek.
+#   Hiszpański tytuł i opis można pominąć: [Jedzenie]
+#
+# ODMIANA CZASOWNIKÓW
+#   Wiersz z bezokolicznikiem w nawiasie zaczyna tabelę odmiany:
+#   (comer)
+#   yo como ; como = ja jem
+#   Forma czasownika musi być ostatnim wyrazem po hiszpańsku.
+#
+# WAŻNE
+#   - Rzeczowniki zapisuj z rodzajnikiem (el / la), wtedy trafią do trybu „El czy la?”.
+#   - Kolejność i przenoszenie słówek między działami nie kasuje nikomu postępów.
+#   - Poprawka w hiszpańskim zapisie słówka zeruje postęp tego jednego słówka.
+#   - Wiersze zaczynające się od # są pomijane.
+
+[Kolory | Los colores | Nadaj swojemu światu trochę koloru.]
+> Kolory podano jako przymiotniki, dlatego bez rodzajników. Część z nich zmienia końcówkę, np. rojo → roja.
+verde = zielony
+amarillo = żółty
+rojo = czerwony
+negro = czarny
+azul = niebieski
+gris = szary
+blanco = biały
+marrón = brązowy
+
+[Kraje | Los países | Skąd jesteś? Dokąd jedziesz?]
+> Nazwy krajów zwykle podajemy bez rodzajnika: Alemania, Polonia. Poprawne są obie formy: Estados Unidos i los Estados Unidos.
+Alemania = Niemcy
+Japón = Japonia
+Bélgica = Belgia
+los Estados Unidos ; Estados Unidos = Stany Zjednoczone ; USA ; Stany Zjednoczone Ameryki
+Polonia = Polska
+Inglaterra = Anglia
+Brasil = Brazylia
+
+[Dział 2 · podstawy | Las primeras palabras | Ludzie, przedmioty i codzienność.]
+> Ucz się rzeczowników razem z rodzajnikiem: el lub la. Uwaga: el día jest rodzaju męskiego, mimo końcówki -a. Estudiante ma tę samą postać dla obu płci: el estudiante, la estudiante.
+el libro = książka
+el bolígrafo = długopis
+el estudiante = uczeń ; student
+la estudiante = uczennica ; studentka
+el cuaderno = zeszyt
+la casa = dom
+la silla = krzesło
+la pizarra = tablica
+la ciudad = miasto
+la lección = lekcja
+la madre = matka ; mama
+el padre = ojciec ; tata
+la mesa = stół
+el niño = chłopiec ; chłopak
+la niña = dziewczynka
+el día = dzień
+el lápiz = ołówek
+
+[Zawody | Las profesiones | Poznaj ludzi i to, czym się zajmują.]
+> La abogada to prawniczka, a la dependienta to sprzedawczyni. Męskie odpowiedniki: el abogado i el dependiente. W zdaniu po ser rodzajnik przy zawodzie zwykle pomijamy: Soy médico.
+el peluquero = fryzjer
+el jardinero = ogrodnik
+el médico = lekarz
+la enfermera = pielęgniarka
+la abogada = prawniczka ; adwokatka ; prawnik ; adwokat
+la dependienta = sprzedawczyni ; sprzedawca ; ekspedientka
+
+[Pytania | Las preguntas | Zacznij swoją pierwszą rozmowę.]
+> W pytaniach pamiętaj o ¿ na początku, ? na końcu i akcentach: cómo, cuántos, dónde, qué. ¿Qué haces? może też oznaczać „Czym się zajmujesz?”.
+¿Cómo te llamas? = Jak się nazywasz?
+¿Cuántos años tienes? = Ile masz lat?
+¿De dónde eres? = Skąd jesteś?
+¿Dónde vives? = Gdzie mieszkasz?
+¿Qué haces? = Co robisz? ; Czym się zajmujesz? | Hacer → yo hago, tú haces. W presente nieregularna jest forma yo: hago.
+¿Cómo estás? = Jak się masz? ; Jak się czujesz?
+¿Qué hora es? = Która jest godzina? ; Która godzina?
+¿Qué te gusta? = Co lubisz?
+
+[Czasowniki | Los verbos | Małe słowa, które wprawiają w ruch.]
+> Wszystkie bezokoliczniki zapisano małą literą. Poprawiono Tamar → tomar. Levantarse i ducharse są zwrotne. Tomar może znaczyć „brać” lub „pić”, a pasar ma kilka znaczeń zależnych od kontekstu.
+levantarse = wstawać
+ducharse = brać prysznic ; myć się pod prysznicem
+estudiar = uczyć się ; studiować
+pasar = przechodzić ; mijać ; spędzać ; spędzać czas | Np. pasar por la ciudad: przechodzić przez miasto; pasar tiempo: spędzać czas.
+entrar = wchodzić
+desayunar = jeść śniadanie ; jadać śniadanie
+tomar = brać ; pić | Np. tomar agua: pić wodę. W Twojej liście: „Tamar” → tomar.
+llegar = przybywać ; docierać ; przyjeżdżać
+cenar = jeść kolację ; jadać kolację
+trabajar = pracować
+leer = czytać
+beber = pić
+escribir = pisać
+hacer = robić ; wykonywać
+ir = iść ; jechać
+
+[Odmiana · hacer i ir | El presente | Robię, idę. Przećwicz wszystkie osoby.]
+> Czas teraźniejszy: presente de indicativo. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Ir: voy, vas, va, vamos, vais, van. „Yo ago” jest błędne, poprawnie: yo hago. Hacer ma nieregularną formę yo. Usted to pan lub pani, ustedes to państwo.
+(hacer)
+yo hago ; hago = ja robię
+tú haces ; haces = ty robisz
+él / ella / usted hace ; él hace ; ella hace ; usted hace ; hace = on / ona robi, pan / pani robi ; on robi ; ona robi ; pan robi ; pani robi
+nosotros / nosotras hacemos ; nosotros hacemos ; nosotras hacemos ; hacemos = my robimy
+vosotros / vosotras hacéis ; vosotros hacéis ; vosotras hacéis ; hacéis = wy robicie
+ellos / ellas / ustedes hacen ; ellos hacen ; ellas hacen ; ustedes hacen ; hacen = oni / one robią, państwo robią ; oni robią ; one robią ; państwo robią
+(ir)
+yo voy ; voy = ja idę / jadę ; ja idę ; ja jadę
+tú vas ; vas = ty idziesz / jedziesz ; ty idziesz ; ty jedziesz
+él / ella / usted va ; él va ; ella va ; usted va ; va = on / ona idzie, pan / pani idzie ; on idzie ; ona idzie ; pan idzie ; pani idzie ; on jedzie ; ona jedzie ; pan jedzie ; pani jedzie
+nosotros / nosotras vamos ; nosotros vamos ; nosotras vamos ; vamos = my idziemy / jedziemy ; my idziemy ; my jedziemy
+vosotros / vosotras vais ; vosotros vais ; vosotras vais ; vais = wy idziecie / jedziecie ; wy idziecie ; wy jedziecie
+ellos / ellas / ustedes van ; ellos van ; ellas van ; ustedes van ; van = oni / one idą, państwo idą ; oni idą ; one idą ; państwo idą ; oni jadą ; one jadą ; państwo jadą
