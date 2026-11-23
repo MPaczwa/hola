@@ -1,12 +1,11 @@
 {
   "name": "Hola hiszpański",
   "short_name": "Hola",
-  "description": "Fiszki i testy z hiszpańskiego.",
+  "description": "Fiszki, liczebniki i ćwiczenia z hiszpańskiego.",
   "lang": "pl",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#204e42",
   "theme_color": "#204e42",
   "icons": [
