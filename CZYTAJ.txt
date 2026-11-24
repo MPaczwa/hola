@@ -27,11 +27,11 @@ Dopisywanie słówek
   2. Dopisz wiersze "hiszpański = polski" (opis formatu jest na górze pliku).
   3. Commit changes.
   Telefony pobierają nową listę same przy otwarciu aplikacji, zwykle do 10 minut
-  po zapisie. Ręcznie: Postępy > Lista słówek > Sprawdź aktualizację.
+  po zapisie. Ręcznie: ikona profilu > Lista słówek > Sprawdź aktualizację.
   W tym samym miejscu widać wiersze, których aplikacja nie zrozumiała.
 
 Warto wiedzieć
   - Aplikacja z ikony ma osobną pamięć niż Safari. Ucz się z ikony albo przenieś
-    postępy: Postępy > Dane i kopia.
+    postępy: ikona profilu > Dane i kopia.
   - Kolejność słówek i przenoszenie ich między działami nie kasuje postępów.
     Zmiana hiszpańskiego zapisu słówka zeruje postęp tego jednego słówka.

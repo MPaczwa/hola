@@ -1,7 +1,7 @@
 /* Zachowaj cały pakiet aplikacji i listę słówek do nauki offline. */
 const scope = new URL(self.registration.scope);
 const prefix = 'hola:' + scope.pathname + ':';
-const CACHE = prefix + 'v3';
+const CACHE = prefix + 'v4';
 const ASSETS = [
   './', './index.html', './study.js', './themes.css', './numbers.css', './slowka.txt',
   './manifest.webmanifest', './icon-180.png', './icon-192.png', './icon-512.png'

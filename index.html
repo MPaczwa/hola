@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#204e42">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Hola">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="Fiszki i testy z hiszpańskiego. Działa jak aplikacja na iPhonie, postęp zapisuje się na urządzeniu.">
@@ -54,8 +53,13 @@ try {
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
 html{height:100%;background:var(--header);-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.35 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.35 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
 body::before{content:"";position:fixed;z-index:-1;left:0;right:0;bottom:0;height:50vh;background:var(--bg)}
+/* WebKit may sample the body instead of the sticky bar when tinting its status area. */
+@media (pointer:coarse),(display-mode:standalone){
+  body{background-color:var(--header);isolation:isolate}
+  .tabbar{-webkit-backdrop-filter:none;backdrop-filter:none}
+}
 h1,h2,h3,p{margin:0}
 button,input,select,textarea{font:inherit;color:inherit}
 button,a{touch-action:manipulation}
@@ -72,11 +76,13 @@ a{color:inherit;text-decoration:none}
 .nav-left{justify-self:start;display:flex;min-width:0}
 .nav-right{grid-column:3;grid-row:1;justify-self:end;display:flex;gap:2px}
 .nav-title{font-weight:600;font-size:17px;opacity:0;transition:opacity .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:48vw}
+.navbar.has-actions .nav-title{max-width:min(48vw,max(0px,calc(100vw - var(--safe-l) - var(--safe-r) - 192px)))}
 .scrolled .nav-title{opacity:1}
 .navbar.is-home .navbar-row{grid-template-columns:minmax(0,1fr) auto}
 .navbar.is-home .nav-right{grid-column:2}
 .navbar.is-home .nav-title{grid-column:1;grid-row:1;max-width:none;padding:4px 8px;white-space:normal;overflow-wrap:anywhere;font-size:15px}
 .nav-btn{min-width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;gap:1px;border:0;background:none;color:inherit;font-size:17px;padding:0 8px;border-radius:12px}
+.nav-btn:focus-visible{outline-offset:-3px}
 .nav-btn:active{opacity:.55}
 .nav-btn span{white-space:nowrap}
 .nav-left .nav-btn{max-width:100%}
@@ -187,6 +193,12 @@ textarea.field{resize:none;line-height:1.35}
 .resume div{flex:1;min-width:0;font-size:14px}
 .resume strong{display:block;font-size:16px}
 .resume .btn{background:var(--on-gold);color:#fff7e3}
+.profile-summary{min-height:78px}
+.profile-summary .avatar{width:46px;height:46px;font-size:20px}
+.profile-summary .row-title{font-size:19px;font-weight:650}
+.settings-view{display:flex;flex-direction:column;gap:16px}
+main.settings-leaving .wrap{animation:settings-out .16s ease-in both}
+@keyframes settings-out{to{opacity:0;transform:translateY(6px)}}
 .strip{display:grid;grid-template-columns:repeat(3,1fr)}
 .strip>div{padding:13px 6px;text-align:center;min-width:0}
 .strip>div+div{border-left:.5px solid var(--line)}
@@ -462,25 +474,43 @@ la dependienta = sprzedawczyni ; sprzedawca ; ekspedientka
 ¿Qué hora es? = Która jest godzina? ; Która godzina?
 ¿Qué te gusta? = Co lubisz?
 
-[Czasowniki | Los verbos | Małe słowa, które wprawiają w ruch.]
-> Wszystkie bezokoliczniki zapisano małą literą. Poprawiono Tamar → tomar. Levantarse i ducharse są zwrotne. Tomar może znaczyć „brać” lub „pić”, a pasar ma kilka znaczeń zależnych od kontekstu.
+[Czasowniki – najważniejsze | Verbos esenciales | Podstawowe czasowniki do pierwszych rozmów.]
+> Ser opisuje m.in. tożsamość, pochodzenie i cechy. Estar przydaje się, gdy mówisz o stanie lub położeniu. Tomar może znaczyć „brać” lub „pić”.
+ser = być | Np. Soy de Polonia: jestem z Polski.
+estar = znajdować się ; być | Np. Estoy en casa: jestem w domu.
+tener = mieć ; posiadać
+hacer = robić ; wykonywać
+ir = iść ; jechać
+poder = móc ; mieć możliwość
+hablar = mówić ; rozmawiać
+necesitar = potrzebować
+ayudar = pomagać ; pomóc
+preguntar = pytać ; zapytać ; zadawać pytanie
+buscar = szukać ; poszukiwać
+comprar = kupować ; kupić
+trabajar = pracować
+estudiar = uczyć się ; studiować
+beber = pić
+tomar = brać ; pić | Np. tomar agua: pić wodę. W Twojej liście: „Tamar” → tomar.
+
+[Czasowniki – uzupełniające | Más verbos de uso cotidiano | Czasowniki przydatne w kolejnych codziennych sytuacjach.]
+> Levantarse i ducharse są zwrotne. Znaczenie pasar zależy od kontekstu.
 levantarse = wstawać
 ducharse = brać prysznic ; myć się pod prysznicem
-estudiar = uczyć się ; studiować
 pasar = przechodzić ; mijać ; spędzać ; spędzać czas | Np. pasar por la ciudad: przechodzić przez miasto; pasar tiempo: spędzać czas.
 entrar = wchodzić
 desayunar = jeść śniadanie ; jadać śniadanie
-tomar = brać ; pić | Np. tomar agua: pić wodę. W Twojej liście: „Tamar” → tomar.
 llegar = przybywać ; docierać ; przyjeżdżać
 cenar = jeść kolację ; jadać kolację
-trabajar = pracować
 leer = czytać
-beber = pić
 escribir = pisać
-hacer = robić ; wykonywać
-ir = iść ; jechać
+esperar = czekać ; mieć nadzieję ; oczekiwać ; spodziewać się
+pagar = płacić ; zapłacić ; opłacać
+llevar = nosić ; zabierać ; nieść ; mieć na sobie ; zanosić
+responder = odpowiadać ; odpowiedzieć
+usar = używać ; korzystać z ; stosować
 
-[Odmiana · hacer i ir | El presente | Robię, idę. Przećwicz wszystkie osoby.]
+[Odmiana · czasowniki nieregularne | El presente | Przećwicz wszystkie osoby w czasie teraźniejszym.]
 > Czas teraźniejszy: presente de indicativo. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Ir: voy, vas, va, vamos, vais, van. „Yo ago” jest błędne, poprawnie: yo hago. Hacer ma nieregularną formę yo. Usted to pan lub pani, ustedes to państwo.
 (hacer)
 yo hago ; hago = ja robię
@@ -496,17 +526,46 @@ tú vas ; vas = ty idziesz / jedziesz ; ty idziesz ; ty jedziesz
 nosotros / nosotras vamos ; nosotros vamos ; nosotras vamos ; vamos = my idziemy / jedziemy ; my idziemy ; my jedziemy
 vosotros / vosotras vais ; vosotros vais ; vosotras vais ; vais = wy idziecie / jedziecie ; wy idziecie ; wy jedziecie
 ellos / ellas / ustedes van ; ellos van ; ellas van ; ustedes van ; van = oni / one idą, państwo idą ; oni idą ; one idą ; państwo idą ; oni jadą ; one jadą ; państwo jadą
+(ser)
+yo soy ; soy = ja jestem
+tú eres ; eres = ty jesteś
+él / ella / usted es ; él es ; ella es ; usted es ; es = on / ona jest, pan / pani jest ; on jest ; ona jest ; pan jest ; pani jest
+nosotros / nosotras somos ; nosotros somos ; nosotras somos ; somos = my jesteśmy
+vosotros / vosotras sois ; vosotros sois ; vosotras sois ; sois = wy jesteście
+ellos / ellas / ustedes son ; ellos son ; ellas son ; ustedes son ; son = oni / one są, państwo są ; oni są ; one są ; państwo są
+(estar)
+yo estoy ; estoy = ja się znajduję ; ja jestem
+tú estás ; estás = ty się znajdujesz ; ty jesteś
+él / ella / usted está ; él está ; ella está ; usted está ; está = on / ona się znajduje, pan / pani się znajduje ; on się znajduje ; ona się znajduje ; pan się znajduje ; pani się znajduje ; on jest ; ona jest ; pan jest ; pani jest
+nosotros / nosotras estamos ; nosotros estamos ; nosotras estamos ; estamos = my się znajdujemy ; my jesteśmy
+vosotros / vosotras estáis ; vosotros estáis ; vosotras estáis ; estáis = wy się znajdujecie ; wy jesteście
+ellos / ellas / ustedes están ; ellos están ; ellas están ; ustedes están ; están = oni / one się znajdują, państwo się znajdują ; oni się znajdują ; one się znajdują ; państwo się znajdują ; oni są ; one są ; państwo są
+(tener)
+yo tengo ; tengo = ja mam
+tú tienes ; tienes = ty masz
+él / ella / usted tiene ; él tiene ; ella tiene ; usted tiene ; tiene = on / ona ma, pan / pani ma ; on ma ; ona ma ; pan ma ; pani ma
+nosotros / nosotras tenemos ; nosotros tenemos ; nosotras tenemos ; tenemos = my mamy
+vosotros / vosotras tenéis ; vosotros tenéis ; vosotras tenéis ; tenéis = wy macie
+ellos / ellas / ustedes tienen ; ellos tienen ; ellas tienen ; ustedes tienen ; tienen = oni / one mają, państwo mają ; oni mają ; one mają ; państwo mają
+(poder)
+yo puedo ; puedo = ja mogę
+tú puedes ; puedes = ty możesz
+él / ella / usted puede ; él puede ; ella puede ; usted puede ; puede = on / ona może, pan / pani może ; on może ; ona może ; pan może ; pani może
+nosotros / nosotras podemos ; nosotros podemos ; nosotras podemos ; podemos = my możemy
+vosotros / vosotras podéis ; vosotros podéis ; vosotras podéis ; podéis = wy możecie
+ellos / ellas / ustedes pueden ; ellos pueden ; ellas pueden ; ustedes pueden ; pueden = oni / one mogą, państwo mogą ; oni mogą ; one mogą ; państwo mogą
 </script>
 <script src="study.js"></script>
 <script>
 'use strict';
 /* Word list: parsed from slowka.txt (embedded copy below, fresher copy fetched from the site). */
 let TOPICS=[], WORDS=[];
+const ESSENTIAL_VERBS='verbs-essential', EXTRA_VERBS='verbs', ALL_VERBS='all-verbs';
 const WordList=(()=>{
   const norm=s=>String(s).normalize('NFC').toLocaleLowerCase().replace(/[¿?¡!.,:;]/g,'').replace(/\s*\/\s*/g,' / ').replace(/\s+/g,' ').trim();
   const slug=s=>norm(s).replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-+|-+$/g,'');
   /* Ids from the first version of the app, so progress saved there keeps matching. */
-  const LEGACY_TOPICS={'kolory':'colors','kraje':'countries','dział 2 · podstawy':'basics','zawody':'jobs','pytania':'questions','czasowniki':'verbs','odmiana · hacer i ir':'conjugation'};
+  const LEGACY_TOPICS={'kolory':'colors','kraje':'countries','dział 2 · podstawy':'basics','zawody':'jobs','pytania':'questions','czasowniki':EXTRA_VERBS,'czasowniki – najważniejsze':ESSENTIAL_VERBS,'czasowniki – uzupełniające':EXTRA_VERBS,'odmiana · hacer i ir':'conjugation','odmiana · czasowniki nieregularne':'conjugation'};
   const LEGACY_WORDS={"colors":["verde","amarillo","rojo","negro","azul","gris","blanco","marrón"],"countries":["Alemania","Japón","Bélgica","los Estados Unidos","Polonia","Inglaterra","Brasil"],"basics":["el libro","el bolígrafo","el estudiante","la estudiante","el cuaderno","la casa","la silla","la pizarra","la ciudad","la lección","la madre","el padre","la mesa","el niño","la niña","el día","el lápiz"],"jobs":["el peluquero","el jardinero","el médico","la enfermera","la abogada","la dependienta"],"questions":["¿Cómo te llamas?","¿Cuántos años tienes?","¿De dónde eres?","¿Dónde vives?","¿Qué haces?","¿Cómo estás?","¿Qué hora es?","¿Qué te gusta?"],"verbs":["levantarse","ducharse","estudiar","pasar","entrar","desayunar","tomar","llegar","cenar","trabajar","leer","beber","escribir","hacer","ir"],"conjugation":["yo hago","tú haces","él / ella / usted hace","nosotros / nosotras hacemos","vosotros / vosotras hacéis","ellos / ellas / ustedes hacen","yo voy","tú vas","él / ella / usted va","nosotros / nosotras vamos","vosotros / vosotras vais","ellos / ellas / ustedes van"]};
   const legacyId=new Map();
   for(const [topic,list] of Object.entries(LEGACY_WORDS))list.forEach((es,i)=>legacyId.set(norm(es),topic+'-'+i));
@@ -522,7 +581,10 @@ const WordList=(()=>{
         if(!name){skipped.push(line);continue;}
         const id=LEGACY_TOPICS[norm(name)]||'t-'+slug(name);verb='';
         t=topics.find(x=>x.id===id);
-        if(!t){const look=LOOKS[topics.length%LOOKS.length];t={id,name:name.slice(0,60),es:es.slice(0,70),description:description.slice(0,160),note:'',icon:look[0],color:look[1],ink:look[2]};topics.push(t);}
+        if(!t){
+          const look=LOOKS[{[ESSENTIAL_VERBS]:7,[EXTRA_VERBS]:5,conjugation:6}[id]??topics.length%LOOKS.length];
+          t={id,name:name.slice(0,60),es:es.slice(0,70),description:description.slice(0,160),note:'',icon:look[0],color:look[1],ink:look[2]};topics.push(t);
+        }
         continue;
       }
       if(!t){skipped.push(line);continue;}
@@ -678,18 +740,43 @@ const modeTile=(m,i)=>`<span class="tile t${i%3}">${m.id==='articles'?'<b class=
 const makeProfile=name=>({id:uid(),name,words:[],topics:[],progress:{},history:[],created:Date.now()});
 
 let fresh=false, state=null, session=null, numberSession=null, route='', filter={query:'',topic:'all',kind:'all'}, toastTimer=0, importMode=null, localBroken=false, warned=false, justDragged=false;
+let settingsReturn=null;
 
 /* ---------- word list: embedded copy first, then the newest slowka.txt from the site ---------- */
 let listInfo={source:'embedded',text:'',skipped:[],at:0};
+const embeddedWords=$('#words-src').textContent;
+function updateLegacyVerbList(parsed){
+ const legacy=parsed.topics.find(t=>t.id===EXTRA_VERBS&&t.name.toLocaleLowerCase()==='czasowniki');
+ if(!legacy||parsed.topics.some(t=>t.id===ESSENTIAL_VERBS))return;
+
+ const current=WordList.parse(embeddedWords);
+ const essential=current.topics.find(t=>t.id===ESSENTIAL_VERBS);
+ const extra=current.topics.find(t=>t.id===EXTRA_VERBS);
+ const conjugation=current.topics.find(t=>t.id==='conjugation');
+ parsed.topics=parsed.topics.flatMap(t=>{
+  if(t===legacy)return [essential,{...extra,note:t.note||extra.note}];
+  if(t.id==='conjugation'&&t.name==='Odmiana · hacer i ir')return [conjugation];
+  return [t];
+ });
+
+ const ids=new Set(parsed.words.map(w=>w.id)), topics=new Set(parsed.topics.map(t=>t.id));
+ const important=new Set(current.words.filter(w=>w.topic===ESSENTIAL_VERBS).map(w=>w.id));
+ for(const w of parsed.words){if(w.topic===EXTRA_VERBS&&important.has(w.id))w.topic=ESSENTIAL_VERBS;}
+ for(const w of current.words){
+  if(!w.id.startsWith('w-')||ids.has(w.id)||!topics.has(w.topic))continue;
+  if(w.topic===ESSENTIAL_VERBS||w.topic===EXTRA_VERBS||w.topic==='conjugation')parsed.words.push(w);
+ }
+}
 function applyWordList(text,source,at=0){
  const parsed=WordList.parse(text);
  if(!parsed.words.length)return false;
+ updateLegacyVerbList(parsed);
  TOPICS=parsed.topics;WORDS=parsed.words;listInfo={source,text,skipped:parsed.skipped,at};
  return true;
 }
 (()=>{
  let saved=null;try{saved=JSON.parse(localStorage.getItem(LIST_KEY)||'null');}catch{}
- if(!(saved&&typeof saved.text==='string'&&applyWordList(saved.text,'file',saved.at||0)))applyWordList(document.getElementById('words-src').textContent,'embedded');
+ if(!(saved&&typeof saved.text==='string'&&applyWordList(saved.text,'file',saved.at||0)))applyWordList(embeddedWords,'embedded');
 })();
 const canFetchList=!framed&&/^https?:$/.test(location.protocol);
 async function refreshWordList(manual=false){
@@ -783,7 +870,7 @@ const Cloud=(()=>{
   else if(R===base){await push();}
   else{adopt(merge(state,remote));await push();toast('Połączono postępy z dwóch urządzeń.');}
   status=status==='error'||status==='full'?status:'on';last=Date.now();
-  if(route==='stats'&&!session)render();
+  updateSyncLabel();
  }
  async function init(){
   if(!window.claude?.use){if(framed&&!init.retried){init.retried=true;setTimeout(()=>init().finally(storageNote),1500);}return;}
@@ -795,7 +882,7 @@ const Cloud=(()=>{
    ref=db.doc('data/users/'+id+'/hola');
    await reconcile();
   }catch(e){status=ref?'error':'off';}
-  if(route==='stats'&&!session)render();
+  updateSyncLabel();
  }
  return {
   init,
@@ -817,7 +904,7 @@ function persist(touch=true){
 }
 function storageNote(){
  if(!localBroken||warned||['on','connecting'].includes(Cloud.status()))return;
- warned=true;toast('Ta przeglądarka nie zapisuje danych na stałe. Zrób kopię w zakładce Postępy.');
+ warned=true;toast('Ta przeglądarka nie zapisuje danych na stałe. Kopię zrobisz w ustawieniach profilu, w sekcji „Dane i kopia”.');
 }
 function profile(){return state.profiles.find(p=>p.id===state.activeId);}
 function topics(){return [...TOPICS,...profile().topics];}
@@ -842,21 +929,40 @@ const tabOf=r=>r==='words'||r.startsWith('topic-')?'topics':r==='numbers'?'learn
 function chrome({plain,title,eyebrow='',sub='',back=null,actions=''}){
  $('#navbar').classList.toggle('is-home',route==='home');
  $('#nav-title').textContent=plain;
- $('#nav-left').innerHTML=back?`<a class="nav-btn" href="#${back.href}">${icon('chevL')}<span>${esc(back.label)}</span></a>`:'';
- $('#nav-right').innerHTML=actions;
+ $('#nav-left').innerHTML=route==='settings'?`<button class="nav-btn" type="button" data-action="close-settings">${icon('chevL')}<span>Wróć</span></button>`:back?`<a class="nav-btn" href="#${back.href}">${icon('chevL')}<span>${esc(back.label)}</span></a>`:'';
+ $('#nav-right').innerHTML=actions+(route==='settings'?'':`<button class="nav-btn" type="button" data-action="open-settings" aria-label="Profil i ustawienia"><span class="avatar" aria-hidden="true">${esc(initial(profile()))}</span></button>`);
  $('#titleblock').innerHTML=`<div class="wrap">${eyebrow?`<p class="eyebrow">${eyebrow}</p>`:''}<h1>${title}</h1>${sub?`<p class="sub">${sub}</p>`:''}</div>`;
 }
+const initial=p=>Array.from(p.name)[0].toLocaleUpperCase();
 function body(html){$('#main').innerHTML=`<div class="wrap">${html}</div>`;}
 const addAction=(topicId='')=>`<button class="nav-btn" data-action="add" data-topic="${esc(topicId)}" aria-label="Dodaj słówko">${icon('plus')}</button>`;
 function onScroll(){$('#navbar').classList.toggle('scrolled',window.scrollY>40);}
 function navigate(hash){if(location.hash==='#'+hash){render();return;}location.hash=hash;}
+function openSettings(){
+ settingsReturn={hash:location.hash,scroll:window.scrollY};
+ history.pushState({holaSettings:true},'', '#settings');
+ render();
+ $('[data-action="close-settings"]').focus({preventScroll:true});
+}
+function closeSettings(){
+ const main=$('#main');
+ if(route!=='settings'||main.classList.contains('settings-leaving'))return;
+ const hash=location.hash;
+ const leave=()=>{
+  if(location.hash!==hash||route!=='settings')return;
+  if(history.state?.holaSettings)history.back();else location.replace('#home');
+ };
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches){leave();return;}
+ main.classList.add('settings-leaving');setTimeout(leave,160);
+}
 function render(){
  HolaSpeech.cancel();session=null;stopNumberClock();numberSession=null;
+ $('#main').classList.remove('settings-leaving');
  document.body.classList.remove('in-session');$('#stage').hidden=true;$('#stage').innerHTML='';
  try{route=decodeURIComponent(location.hash.slice(1)||'home');}catch{route='home';}
- if(!['home','learn','topics','words','stats','numbers'].includes(route)&&!route.startsWith('topic-'))route='home';
+ if(!['home','learn','topics','words','stats','numbers','settings'].includes(route)&&!route.startsWith('topic-'))route='home';
  $$('.tab').forEach(el=>{const on=el.dataset.tab===tabOf(route);el.classList.toggle('active',on);if(on)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
- if(route==='home')renderHome();else if(route==='learn')renderLearn();else if(route==='topics'||route==='words')renderDict();else if(route==='stats')renderStats();else if(route==='numbers')renderNumbers();else renderTopic(route.slice(6));
+ if(route==='home')renderHome();else if(route==='learn')renderLearn();else if(route==='topics'||route==='words')renderDict();else if(route==='stats')renderStats();else if(route==='numbers')renderNumbers();else if(route==='settings')renderSettings();else renderTopic(route.slice(6));
  window.scrollTo(0,0);onScroll();
  Cloud.resume();
 }
@@ -872,7 +978,7 @@ function renderHome(){
  const due=dueWords().length, unseen=all.filter(w=>!progress(w).seen).length, learned=all.filter(mastered).length;
  const daily=due+unseen, n=Math.min(10,daily||all.length);
  chrome({plain:named?p.name:'Dziś',eyebrow:esc(new Date().toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long'})),title:named?`¡Hola, ${esc(p.name)}!`:'¡Hola!',sub:'<span lang="es">Un poquito cada día.</span> Odrobina każdego dnia.',
-  actions:addAction()+`<button class="nav-btn" data-action="profiles" aria-label="Profile"><span class="avatar">${esc(p.name[0].toLocaleUpperCase())}</span></button>`});
+  actions:addAction()});
  const head=due?`${due} ${plural(due,'słówko','słówka','słówek')} do powtórki`:unseen?`${unseen} ${plural(unseen,'nowe słówko','nowe słówka','nowych słówek')} czeka`:'Wszystko powtórzone';
  const sub=due&&unseen?`i ${unseen} ${plural(unseen,'nowe','nowe','nowych')} w kolejce.`:due?'Krótka sesja wystarczy, żeby je utrwalić.':unseen?'Zacznij od dziesięciu fiszek.':'Możesz przećwiczyć dowolny dział jeszcze raz.';
  body(`${pendingCard()}
@@ -885,7 +991,7 @@ function renderHome(){
   <div class="group">${topics().map(topicRow).join('')}</div></section>`);
 }
 function renderLearn(){
- chrome({plain:'Nauka',title:'Tryby nauki',sub:'Słówka i liczebniki po hiszpańsku.',actions:`<button class="nav-btn" data-action="speech-settings" aria-label="Ustawienia lektora">${icon('speaker')}</button>`});
+ chrome({plain:'Nauka',title:'Tryby nauki',sub:'Słówka i liczebniki po hiszpańsku.'});
  body(`${pendingCard()}${numberLink()}
  <div class="group">${MODES.map((m,i)=>`<button class="row tap has-icon" data-action="setup" data-type="${m.id}">${modeTile(m,i)}<span class="row-main"><span class="row-title">${m.name}</span><span class="row-sub">${m.description}</span></span>${icon('chevR','chev')}</button>`).join('')}</div>
  <p class="caption">Pomysł na krótką sesję: poznaj słowa na fiszkach, sprawdź je wpisywaniem, a potem wróć do błędów. Zakres „Nowe i do powtórki” wybiera słowa według terminu powtórki.</p>`);
@@ -900,7 +1006,10 @@ function renderDict(){
  const isWords=route==='words';
  chrome({plain:'Słownik',title:'Słownik',sub:`${topics().length} ${plural(topics().length,'dział','działy','działów')} · ${words().length} ${plural(words().length,'fiszka','fiszki','fiszek')}`,actions:addAction()});
  const seg=`<div class="seg" role="tablist"><button role="tab" aria-selected="${!isWords}" class="${isWords?'':'on'}" data-action="seg" data-to="topics">Działy</button><button role="tab" aria-selected="${isWords}" class="${isWords?'on':''}" data-action="seg" data-to="words">Słówka</button></div>`;
- if(!isWords){body(`${seg}<div class="group">${topics().map(topicRow).join('')}</div><button class="btn tint block" data-action="new-topic">${icon('plus')}Nowy dział</button>`);return;}
+ if(!isWords){
+  const allVerbs=hasVerbCategories()?`<button class="row tap has-icon" data-action="setup" data-type="flash" data-topic="${ALL_VERBS}"><span class="tile">${icon('cards')}</span><span class="row-main"><span class="row-title">Wszystkie czasowniki</span><span class="row-sub">Ćwicz bezokoliczniki z obu kategorii</span></span>${icon('chevR','chev')}</button>`:'';
+  body(`${seg}<div class="group">${topics().map(t=>topicRow(t)+(t.id===EXTRA_VERBS?allVerbs:'')).join('')}</div><button class="btn tint block" data-action="new-topic">${icon('plus')}Nowy dział</button>`);return;
+ }
  body(`${seg}
  <div class="search">${icon('search')}<input id="word-search" class="field" type="search" placeholder="Szukaj po polsku lub hiszpańsku" aria-label="Szukaj słówek" value="${esc(filter.query)}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search"></div>
  <div class="chips">${[['all','Wszystkie'],['favorites','Ulubione'],['learned','Opanowane'],['custom','Moje']].map(([v,l])=>`<button class="chip ${filter.kind===v?'on':''}" data-action="kind" data-kind="${v}" aria-pressed="${filter.kind===v}">${l}</button>`).join('')}<select id="word-topic" class="chip" aria-label="Filtruj według działu"><option value="all">Każdy dział</option>${topics().map(t=>`<option value="${esc(t.id)}" ${filter.topic===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select></div>
@@ -929,19 +1038,27 @@ function renderTopic(id){
  ${list.some(verbOf)?'<p class="caption">Pełne odmiany znajdziesz w <a class="link" href="https://dle.rae.es/" target="_blank" rel="noopener noreferrer">słowniku RAE</a>.</p>':''}`);
 }
 function syncLabel(){const s=Cloud.status();return s==='on'?'Konto Claude':s==='connecting'?'Łączenie…':s==='full'?'Brak miejsca':s==='error'?'Tylko lokalnie':localBroken?'Nietrwały zapis':'To urządzenie';}
+function updateSyncLabel(){const value=$('[data-action="data"] .row-value');if(value)value.textContent=syncLabel();}
 const scoreFor=({correct,almost=0})=>correct+almost/2;
 const scoreLabel=new Intl.NumberFormat('pl-PL',{maximumFractionDigits:1});
 function renderStats(){
  const p=profile(), all=words(), tests=p.history.filter(h=>h.mode==='quiz'&&h.type!=='numbers'), total=tests.reduce((n,h)=>n+h.total,0), points=tests.reduce((n,h)=>n+scoreFor(h),0), learned=all.filter(mastered).length;
- chrome({plain:'Postępy',title:'Postępy',sub:'Opanowane znaczy: dwie poprawne odpowiedzi z rzędu.',actions:`<button class="nav-btn" data-action="profiles" aria-label="Profile"><span class="avatar">${esc(p.name[0].toLocaleUpperCase())}</span></button>`});
- const row=(ic,title,value,action)=>`<button class="row tap has-icon" data-action="${action}"><span class="tile">${icon(ic)}</span><span class="row-main"><span class="row-title">${title}</span></span><span class="row-value">${value}</span>${icon('chevR','chev')}</button>`;
+ chrome({plain:'Postępy',title:'Postępy',sub:'Opanowane znaczy: dwie poprawne odpowiedzi z rzędu.'});
  body(`<div class="tiles"><div class="stat"><b>${learned}<small style="font-size:.5em;color:var(--faint)"> / ${all.length}</small></b><span>opanowanych słówek</span></div><div class="stat"><b>${streak()}</b><span>${plural(streak(),'dzień','dni','dni')} nauki z rzędu</span></div><div class="stat"><b>${dueWords().length}</b><span>do powtórki dziś</span></div><div class="stat"><b>${total?Math.round(points/total*100):0}%</b><span>punktów w testach słówek</span></div></div>
  ${numberLink()}
  <section class="section"><div class="section-head"><h2>Działy</h2></div><div class="group">${topics().map(topicRow).join('')}</div></section>
  <section class="section"><div class="section-head"><h2>Ostatnie sesje</h2></div>${p.history.length?`<div class="group">${[...p.history].reverse().slice(0,12).map(h=>`<div class="row"><span class="row-main"><span class="row-title">${esc(h.type?modeLabel(h.type):(h.mode==='quiz'?'Test':'Fiszki'))}</span><span class="row-sub">${esc(h.topicName)} · ${new Date(h.date).toLocaleString('pl-PL',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}${h.almost?` · ${h.almost} prawie`:''}</span></span><span class="row-value">${scoreLabel.format(scoreFor(h))}/${h.total}</span></div>`).join('')}</div>`:'<p class="caption">Tu pojawią się ukończone sesje.</p>'}</section>
- <section class="section"><div class="section-head"><h2>Ustawienia</h2></div><div class="group">
-  ${row('person','Profil',esc(p.name),'profiles')}${row('palette','Motyw',themeName(),'themes')}${row('speaker','Lektor',profile().speech?.auto?'Czyta sam':'Na żądanie','speech-settings')}${row('cloud','Dane i kopia',syncLabel(),'data')}${row('dict','Lista słówek',WORDS.length+' '+plural(WORDS.length,'słówko','słówka','słówek'),'word-list')}${!framed&&!standalone()?row('phone','Dodaj do ekranu początkowego','','install'):''}
- </div><p class="caption">Poprawna odpowiedź przesuwa powtórkę o 1, 3, 7, 14, 30 lub 60 dni. Po drobnej pomyłce słówko wraca za godzinę, a po błędzie za 10 minut.</p></section>`);
+ <p class="caption">Poprawna odpowiedź przesuwa powtórkę o 1, 3, 7, 14, 30 lub 60 dni. Po drobnej pomyłce słówko wraca za godzinę, a po błędzie za 10 minut.</p>`);
+}
+function renderSettings(){
+ const p=profile();
+ chrome({plain:'Profil i ustawienia',title:'Profil i ustawienia'});
+ const row=(ic,title,value,action)=>`<button class="row tap has-icon" data-action="${action}"><span class="tile">${icon(ic)}</span><span class="row-main"><span class="row-title">${title}</span></span><span class="row-value">${value}</span>${icon('chevR','chev')}</button>`;
+ body(`<div class="settings-view">
+  <div class="group"><button class="row tap has-icon profile-summary" data-action="profiles"><span class="avatar" aria-hidden="true">${esc(initial(p))}</span><span class="row-main"><span class="row-title">${esc(p.name)}</span><span class="row-sub">Zarządzaj profilami</span></span>${icon('chevR','chev')}</button></div>
+  <div class="group">
+   ${row('palette','Motyw',themeName(),'themes')}${row('speaker','Lektor',p.speech?.auto?'Czyta sam':'Na żądanie','speech-settings')}${row('cloud','Dane i kopia',syncLabel(),'data')}${row('dict','Lista słówek',WORDS.length+' '+plural(WORDS.length,'słówko','słówka','słówek'),'word-list')}${!framed&&!standalone()?row('phone','Dodaj do ekranu początkowego','','install'):''}
+  </div></div>`);
 }
 
 /* ---------- sheets ---------- */
@@ -1009,7 +1126,7 @@ function speechSettings(){
  <p id="voice-status" role="status">${list.length?`Hiszpańskie głosy na tym urządzeniu: ${list.length}. Zmiany zapisują się od razu.`:'Szukam hiszpańskich głosów…'}</p></form>`);
  if(!list.length)HolaSpeech.ready().then(available=>{if(!$('#speech-form'))return;if(available.length){$('#speech-voice').insertAdjacentHTML('beforeend',options(available));$('#voice-status').textContent=`Hiszpańskie głosy na tym urządzeniu: ${available.length}. Zmiany zapisują się od razu.`;}else $('#voice-status').textContent='To urządzenie nie udostępnia hiszpańskiego głosu. Na iPhonie dodasz go w Ustawienia → Dostępność → Zawartość mówiona → Głosy.';});
 }
-function saveSpeech(){const f=new FormData($('#speech-form'));profile().speech={voiceURI:String(f.get('voiceURI')||''),rate:Number(f.get('rate'))||.85,auto:f.has('auto')};persist();}
+function saveSpeech(){const f=new FormData($('#speech-form'));profile().speech={voiceURI:String(f.get('voiceURI')||''),rate:Number(f.get('rate'))||.85,auto:f.has('auto')};persist();const value=$('[data-action="speech-settings"] .row-value');if(value)value.textContent=profile().speech.auto?'Czyta sam':'Na żądanie';}
 function wordSheet(id){
  const w=words().find(w=>w.id===id);if(!w)return;const p=progress(w);
  const status=mastered(w)?'Opanowane':p.seen?'W nauce':'Nowe';
@@ -1106,7 +1223,7 @@ function confirmImport(){
    state.profiles.push(p);state.activeId=p.id;
   }
   pickedNumberLevel=null;
-  message='Kopia wczytana. Profile przełączysz w zakładce Postępy.';
+  message='Kopia wczytana. Profile przełączysz w ustawieniach profilu.';
  }else{
   const {n}=importWords(pack,profile());message=`Dodano ${n} ${plural(n,'słówko','słówka','słówek')}. Identyczne wpisy pominięto.`;
  }
@@ -1148,6 +1265,8 @@ function scoreBreakdown(correct,almost,total){
 function learningQueue(list,pool,count){const ordered=pool==='daily'?[...shuffle(list.filter(w=>progress(w).seen>0)),...shuffle(list.filter(w=>!progress(w).seen))]:shuffle(list);return ordered.slice(0,count);}
 function makeOptions(w,q,strict){if(q.options)return q.options;const result=[q.expected];const candidates=shuffle(words().filter(x=>x.id!==w.id));for(const candidate of [...candidates.filter(x=>x.topic===w.topic),...candidates.filter(x=>x.topic!==w.topic)]){const value=candidate[q.target];if(!isCorrectQuestion(q,value,strict)&&!result.some(x=>normalize(x,strict)===normalize(value,strict)))result.push(value);if(result.length===4)break;}return shuffle(result);}
 const FIXED_DIR=['dictation','listening','articles','conjugation','match'];
+const isVerbTopic=id=>id===ESSENTIAL_VERBS||id===EXTRA_VERBS;
+const hasVerbCategories=()=>Boolean(topic(ESSENTIAL_VERBS)&&topic(EXTRA_VERBS));
 function setup(type='flash',topicId='all'){
  if(!MODES.some(m=>m.id===type))type='flash';
  const pr=profile().prefs||{}, dir=pr.direction==='pl-es'?'pl-es':'es-pl', cnt=['5','10','20','all'].includes(String(pr.count))?String(pr.count):'10', pool=['all','daily','difficult','favorites','custom'].includes(pr.pool)?pr.pool:'all', strict=pr.strict!==false;
@@ -1155,7 +1274,7 @@ function setup(type='flash',topicId='all'){
  sheet('Jak dziś ćwiczymy?',`<form id="session-form">
  <div><div class="group">
   <label class="row"><span class="row-main">Tryb</span><select id="session-type" name="type">${MODES.map(m=>`<option value="${m.id}" ${m.id===type?'selected':''}>${m.name}</option>`).join('')}</select></label>
-  <label class="row"><span class="row-main">Dział</span><select id="session-topic" name="topic"><option value="all">Wszystkie działy</option>${topics().map(t=>`<option value="${esc(t.id)}" ${topicId===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select></label>
+  <label class="row"><span class="row-main">Dział</span><select id="session-topic" name="topic"><option value="all">Wszystkie działy</option>${hasVerbCategories()?`<option value="${ALL_VERBS}" ${topicId===ALL_VERBS?'selected':''}>Wszystkie czasowniki</option>`:''}${topics().map(t=>`<option value="${esc(t.id)}" ${topicId===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select></label>
   <label class="row"><span class="row-main">Zakres</span><select id="session-pool" name="pool">${[['all','Wszystkie słówka'],['daily','Nowe i do powtórki'],['difficult','Te, w których był błąd'],['favorites','Ulubione'],['custom','Tylko moje']].map(([v,l])=>`<option value="${v}" ${v===pool?'selected':''}>${l}</option>`).join('')}</select></label>
  </div><p class="help" id="mode-help"></p></div>
  <div><span class="label" id="dir-label">Kierunek</span><div class="seg" id="dir-seg" role="radiogroup" aria-labelledby="dir-label">${radio('direction','es-pl','Hiszpański → polski',dir)}${radio('direction','pl-es','Polski → hiszpański',dir)}</div></div>
@@ -1168,7 +1287,7 @@ function setup(type='flash',topicId='all'){
 }
 function updateModeHelp(){const type=$('#session-type')?.value;if(!type)return;$('#mode-help').textContent=MODES.find(m=>m.id===type)?.description||'';const fixed=FIXED_DIR.includes(type);$('#dir-seg').classList.toggle('disabled',fixed);$$('#dir-seg input').forEach(el=>el.disabled=fixed);$('#strict-setting').hidden=type==='typing';$('#typing-grade-help').hidden=type!=='typing';}
 async function beginSession({type,topicId,pool,count,direction,strict},fail,busy=()=>{}){
- let list=words().filter(w=>topicId==='all'||w.topic===topicId);
+ let list=words().filter(w=>topicId==='all'||(topicId===ALL_VERBS?isVerbTopic(w.topic):w.topic===topicId));
  if(type==='articles')list=list.filter(articleOf);if(type==='conjugation')list=list.filter(verbOf);
  if(pool==='daily')list=list.filter(w=>!progress(w).seen||progress(w).due<=Date.now());
  if(pool==='difficult')list=list.filter(w=>progress(w).seen>progress(w).correct);
@@ -1180,7 +1299,8 @@ async function beginSession({type,topicId,pool,count,direction,strict},fail,busy
  }
  if(type==='match'){const seenEs=new Set(),seenPl=new Set();list=shuffle(list).filter(w=>{const e=normalize(w.es),p=normalize(w.pl);if(seenEs.has(e)||seenPl.has(p))return false;seenEs.add(e);seenPl.add(p);return true;});if(list.length<2){fail('Do par potrzebne są przynajmniej dwa słówka z różnymi tłumaczeniami.');return;}}
  const n=count==='all'?list.length:Number(count);
- session={id:uid(),mode:type==='flash'?'flash':'quiz',type,topicId,topicName:topicId==='all'?'Wszystkie działy':topic(topicId).name,direction:['dictation','listening'].includes(type)?'es-pl':direction,strict,queue:learningQueue(list,pool,n),index:0,revealed:false,answered:false,correct:0,results:[],finished:false};
+ const topicName=topicId===ALL_VERBS?'Wszystkie czasowniki':topicId==='all'?'Wszystkie działy':topic(topicId).name;
+ session={id:uid(),mode:type==='flash'?'flash':'quiz',type,topicId,topicName,direction:['dictation','listening'].includes(type)?'es-pl':direction,strict,queue:learningQueue(list,pool,n),index:0,revealed:false,answered:false,correct:0,results:[],finished:false};
  closeSheet(true);checkpoint();renderSession();
 }
 function startFromForm(form){
@@ -1514,6 +1634,8 @@ document.addEventListener('click',e=>{
  else if(a==='install')showInstall();
  else if(a==='word-list')showWordList();
  else if(a==='refresh-list')refreshWordList(true);
+ else if(a==='open-settings')openSettings();
+ else if(a==='close-settings')closeSettings();
  else if(a==='profiles')showProfiles();
  else if(a==='themes')showThemes();
  else if(a==='set-theme')setTheme(id);
@@ -1613,7 +1735,12 @@ document.addEventListener('keydown',e=>{
 })();
 document.addEventListener('touchstart',()=>{},{passive:true});
 window.addEventListener('scroll',onScroll,{passive:true});
-window.addEventListener('hashchange',()=>{filter.query='';closeSheet(true);render();});
+window.addEventListener('hashchange',()=>{
+ const returning=route==='settings'&&settingsReturn?.hash===location.hash?settingsReturn:null;
+ if(!returning)filter.query='';
+ settingsReturn=null;closeSheet(true);render();
+ if(returning){window.scrollTo(0,returning.scroll);$('[data-action="open-settings"]')?.focus({preventScroll:true});}
+});
 window.addEventListener('pagehide',()=>{if(session&&!session.finished)checkpoint();stopNumberClock();HolaSpeech.cancel();Cloud.flush();});
 window.addEventListener('pageshow',syncNumberClock);
 sheetEl.addEventListener('close',syncNumberClock);

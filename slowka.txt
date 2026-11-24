@@ -91,25 +91,43 @@ la dependienta = sprzedawczyni ; sprzedawca ; ekspedientka
 ¿Qué hora es? = Która jest godzina? ; Która godzina?
 ¿Qué te gusta? = Co lubisz?
 
-[Czasowniki | Los verbos | Małe słowa, które wprawiają w ruch.]
-> Wszystkie bezokoliczniki zapisano małą literą. Poprawiono Tamar → tomar. Levantarse i ducharse są zwrotne. Tomar może znaczyć „brać” lub „pić”, a pasar ma kilka znaczeń zależnych od kontekstu.
+[Czasowniki – najważniejsze | Verbos esenciales | Podstawowe czasowniki do pierwszych rozmów.]
+> Ser opisuje m.in. tożsamość, pochodzenie i cechy. Estar przydaje się, gdy mówisz o stanie lub położeniu. Tomar może znaczyć „brać” lub „pić”.
+ser = być | Np. Soy de Polonia: jestem z Polski.
+estar = znajdować się ; być | Np. Estoy en casa: jestem w domu.
+tener = mieć ; posiadać
+hacer = robić ; wykonywać
+ir = iść ; jechać
+poder = móc ; mieć możliwość
+hablar = mówić ; rozmawiać
+necesitar = potrzebować
+ayudar = pomagać ; pomóc
+preguntar = pytać ; zapytać ; zadawać pytanie
+buscar = szukać ; poszukiwać
+comprar = kupować ; kupić
+trabajar = pracować
+estudiar = uczyć się ; studiować
+beber = pić
+tomar = brać ; pić | Np. tomar agua: pić wodę. W Twojej liście: „Tamar” → tomar.
+
+[Czasowniki – uzupełniające | Más verbos de uso cotidiano | Czasowniki przydatne w kolejnych codziennych sytuacjach.]
+> Levantarse i ducharse są zwrotne. Znaczenie pasar zależy od kontekstu.
 levantarse = wstawać
 ducharse = brać prysznic ; myć się pod prysznicem
-estudiar = uczyć się ; studiować
 pasar = przechodzić ; mijać ; spędzać ; spędzać czas | Np. pasar por la ciudad: przechodzić przez miasto; pasar tiempo: spędzać czas.
 entrar = wchodzić
 desayunar = jeść śniadanie ; jadać śniadanie
-tomar = brać ; pić | Np. tomar agua: pić wodę. W Twojej liście: „Tamar” → tomar.
 llegar = przybywać ; docierać ; przyjeżdżać
 cenar = jeść kolację ; jadać kolację
-trabajar = pracować
 leer = czytać
-beber = pić
 escribir = pisać
-hacer = robić ; wykonywać
-ir = iść ; jechać
+esperar = czekać ; mieć nadzieję ; oczekiwać ; spodziewać się
+pagar = płacić ; zapłacić ; opłacać
+llevar = nosić ; zabierać ; nieść ; mieć na sobie ; zanosić
+responder = odpowiadać ; odpowiedzieć
+usar = używać ; korzystać z ; stosować
 
-[Odmiana · hacer i ir | El presente | Robię, idę. Przećwicz wszystkie osoby.]
+[Odmiana · czasowniki nieregularne | El presente | Przećwicz wszystkie osoby w czasie teraźniejszym.]
 > Czas teraźniejszy: presente de indicativo. Hacer: hago, haces, hace, hacemos, hacéis, hacen. Ir: voy, vas, va, vamos, vais, van. „Yo ago” jest błędne, poprawnie: yo hago. Hacer ma nieregularną formę yo. Usted to pan lub pani, ustedes to państwo.
 (hacer)
 yo hago ; hago = ja robię
@@ -125,3 +143,31 @@ tú vas ; vas = ty idziesz / jedziesz ; ty idziesz ; ty jedziesz
 nosotros / nosotras vamos ; nosotros vamos ; nosotras vamos ; vamos = my idziemy / jedziemy ; my idziemy ; my jedziemy
 vosotros / vosotras vais ; vosotros vais ; vosotras vais ; vais = wy idziecie / jedziecie ; wy idziecie ; wy jedziecie
 ellos / ellas / ustedes van ; ellos van ; ellas van ; ustedes van ; van = oni / one idą, państwo idą ; oni idą ; one idą ; państwo idą ; oni jadą ; one jadą ; państwo jadą
+(ser)
+yo soy ; soy = ja jestem
+tú eres ; eres = ty jesteś
+él / ella / usted es ; él es ; ella es ; usted es ; es = on / ona jest, pan / pani jest ; on jest ; ona jest ; pan jest ; pani jest
+nosotros / nosotras somos ; nosotros somos ; nosotras somos ; somos = my jesteśmy
+vosotros / vosotras sois ; vosotros sois ; vosotras sois ; sois = wy jesteście
+ellos / ellas / ustedes son ; ellos son ; ellas son ; ustedes son ; son = oni / one są, państwo są ; oni są ; one są ; państwo są
+(estar)
+yo estoy ; estoy = ja się znajduję ; ja jestem
+tú estás ; estás = ty się znajdujesz ; ty jesteś
+él / ella / usted está ; él está ; ella está ; usted está ; está = on / ona się znajduje, pan / pani się znajduje ; on się znajduje ; ona się znajduje ; pan się znajduje ; pani się znajduje ; on jest ; ona jest ; pan jest ; pani jest
+nosotros / nosotras estamos ; nosotros estamos ; nosotras estamos ; estamos = my się znajdujemy ; my jesteśmy
+vosotros / vosotras estáis ; vosotros estáis ; vosotras estáis ; estáis = wy się znajdujecie ; wy jesteście
+ellos / ellas / ustedes están ; ellos están ; ellas están ; ustedes están ; están = oni / one się znajdują, państwo się znajdują ; oni się znajdują ; one się znajdują ; państwo się znajdują ; oni są ; one są ; państwo są
+(tener)
+yo tengo ; tengo = ja mam
+tú tienes ; tienes = ty masz
+él / ella / usted tiene ; él tiene ; ella tiene ; usted tiene ; tiene = on / ona ma, pan / pani ma ; on ma ; ona ma ; pan ma ; pani ma
+nosotros / nosotras tenemos ; nosotros tenemos ; nosotras tenemos ; tenemos = my mamy
+vosotros / vosotras tenéis ; vosotros tenéis ; vosotras tenéis ; tenéis = wy macie
+ellos / ellas / ustedes tienen ; ellos tienen ; ellas tienen ; ustedes tienen ; tienen = oni / one mają, państwo mają ; oni mają ; one mają ; państwo mają
+(poder)
+yo puedo ; puedo = ja mogę
+tú puedes ; puedes = ty możesz
+él / ella / usted puede ; él puede ; ella puede ; usted puede ; puede = on / ona może, pan / pani może ; on może ; ona może ; pan może ; pani może
+nosotros / nosotras podemos ; nosotros podemos ; nosotras podemos ; podemos = my możemy
+vosotros / vosotras podéis ; vosotros podéis ; vosotras podéis ; podéis = wy możecie
+ellos / ellas / ustedes pueden ; ellos pueden ; ellas pueden ; ustedes pueden ; pueden = oni / one mogą, państwo mogą ; oni mogą ; one mogą ; państwo mogą
